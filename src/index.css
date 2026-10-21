@@ -9,26 +9,50 @@
 html {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+}
+
+html.dark {
   color-scheme: dark;
+  background-color: #0A0E17;
+  color: #F1F5F9;
+}
+
+html.light {
+  color-scheme: light;
+  background-color: #F8FAFC;
+  color: #0F172A;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
-::-webkit-scrollbar-track {
-  background: #09090b;
+.dark ::-webkit-scrollbar-track {
+  background: #0A0E17;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #27272a;
+.dark ::-webkit-scrollbar-thumb {
+  background: #1E293B;
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
 
 /* Code block highlight */

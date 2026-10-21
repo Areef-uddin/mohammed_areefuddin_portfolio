@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Layers,
-  Cpu,
-  Database,
-  Globe,
-  Radio,
-  Sparkles,
   ArrowRight,
   ShieldCheck,
   CheckCircle2
@@ -86,18 +80,18 @@ export const ArchitectureExplorer: React.FC = () => {
   const activeTier = tiers.find((t) => t.id === selectedTierId) || tiers[0];
 
   return (
-    <section id="architecture" className="py-20 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="architecture" className="py-20 border-b border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-[#0A0E17] transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <div className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
             System Design & Engineering
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Full-Stack Flutter Architecture
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
             A production-proven, modular architecture connecting cross-platform mobile clients with Django services, real-time protocols, and Gemini AI.
           </p>
         </div>
@@ -115,24 +109,24 @@ export const ArchitectureExplorer: React.FC = () => {
                   onClick={() => setSelectedTierId(tier.id)}
                   className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group ${
                     isSelected
-                      ? 'border-sky-500/80 bg-sky-950/20 text-zinc-100 shadow-sm shadow-sky-500/10'
-                      : 'border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200'
+                      ? 'border-blue-600 dark:border-blue-500/80 bg-blue-50/70 dark:bg-blue-950/20 text-slate-900 dark:text-white shadow-xs'
+                      : 'border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/40 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200'
                   }`}
                 >
                   <div>
-                    <div className="text-[11px] font-mono text-zinc-500 mb-0.5">
+                    <div className="text-[11px] font-mono text-slate-500 mb-0.5">
                       0{index + 1}. {tier.badge}
                     </div>
-                    <div className="text-sm font-bold text-zinc-100 group-hover:text-sky-300 transition-colors">
+                    <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
                       {tier.name}
                     </div>
-                    <div className="text-xs text-zinc-400 mt-1 line-clamp-1">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
                       {tier.role}
                     </div>
                   </div>
                   <ArrowRight
                     className={`h-4 w-4 shrink-0 transition-transform ${
-                      isSelected ? 'text-sky-400 translate-x-1' : 'text-zinc-600'
+                      isSelected ? 'text-blue-600 dark:text-blue-400 translate-x-1' : 'text-slate-400 dark:text-slate-600'
                     }`}
                   />
                 </button>
@@ -141,7 +135,7 @@ export const ArchitectureExplorer: React.FC = () => {
           </div>
 
           {/* Right: Detailed Architecture Breakdown Panel */}
-          <div className="lg:col-span-7 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
+          <div className="lg:col-span-7 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0E1422] p-6 sm:p-8 shadow-xs">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTier.id}
@@ -151,51 +145,51 @@ export const ArchitectureExplorer: React.FC = () => {
                 transition={{ duration: 0.2 }}
               >
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
                   <div>
-                    <div className="text-xs font-mono text-sky-400 uppercase tracking-wider mb-1">
+                    <div className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
                       {activeTier.badge}
                     </div>
-                    <h3 className="text-xl font-bold text-zinc-100">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                       {activeTier.name}
                     </h3>
                   </div>
-                  <div className="text-xs text-zinc-400 font-mono">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                     Production Validated
                   </div>
                 </div>
 
                 {/* Role Description */}
-                <p className="text-sm text-zinc-300 mb-6 leading-relaxed">
+                <p className="text-sm text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
                   {activeTier.role}
                 </p>
 
                 {/* Engineering Principles */}
                 <div className="mb-6">
-                  <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
                     Key Architectural Principles
                   </div>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-300">
+                  <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     {activeTier.principles.map((principle, idx) => (
                       <li key={idx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{principle}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Technologies List (Unboxed tags) */}
-                <div className="mb-6 pt-4 border-t border-zinc-800/60">
-                  <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                {/* Technologies List */}
+                <div className="mb-6 pt-4 border-t border-slate-200 dark:border-slate-800/60">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
                     Technologies & Protocols
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-zinc-300">
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-700 dark:text-slate-300">
                     {activeTier.technologies.map((tech, i) => (
                       <React.Fragment key={tech}>
-                        <span className="text-zinc-200">{tech}</span>
+                        <span className="font-medium text-slate-800 dark:text-slate-200">{tech}</span>
                         {i < activeTier.technologies.length - 1 && (
-                          <span aria-hidden="true" className="text-zinc-600">·</span>
+                          <span aria-hidden="true" className="text-slate-400 dark:text-slate-600">·</span>
                         )}
                       </React.Fragment>
                     ))}
@@ -203,10 +197,10 @@ export const ArchitectureExplorer: React.FC = () => {
                 </div>
 
                 {/* Resume proof badge */}
-                <div className="rounded-xl border border-zinc-800 bg-zinc-950/70 p-3.5 flex items-start gap-3">
-                  <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <div className="text-xs text-zinc-300">
-                    <span className="font-semibold text-zinc-100">Resume Proof: </span>
+                <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/70 p-3.5 flex items-start gap-3">
+                  <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <div className="text-xs text-slate-700 dark:text-slate-300">
+                    <span className="font-semibold text-slate-900 dark:text-white">Resume Proof: </span>
                     {activeTier.resumeProof}
                   </div>
                 </div>
