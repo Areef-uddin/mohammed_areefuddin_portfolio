@@ -43,60 +43,60 @@ export const DynamicSkillsVisualizer: React.FC = () => {
   const getCategoryIcon = (catName: string) => {
     switch (catName) {
       case 'Languages & Frameworks':
-        return <Code2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+        return <Code2 className="h-4 w-4 text-[var(--accent-text)]" />;
       case 'Mobile & UI Development':
-        return <Smartphone className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />;
+        return <Smartphone className="h-4 w-4 text-[var(--accent-text)]" />;
       case 'Backend & APIs':
-        return <Server className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />;
+        return <Server className="h-4 w-4 text-[var(--accent-text)]" />;
       case 'AI & Integrations':
-        return <Sparkles className="h-4 w-4 text-amber-500 dark:text-amber-400" />;
+        return <Sparkles className="h-4 w-4 text-[var(--accent-text)]" />;
       case 'Deployment & Tools':
-        return <Cloud className="h-4 w-4 text-sky-600 dark:text-sky-400" />;
+        return <Cloud className="h-4 w-4 text-[var(--accent-text)]" />;
       default:
-        return <Code2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+        return <Code2 className="h-4 w-4 text-[var(--accent-text)]" />;
     }
   };
 
   return (
-    <section id="skills" className="py-20 border-b border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-[#0A0E17] transition-colors duration-200">
+    <section id="skills" className="py-20 border-b border-[var(--border-color)] bg-[var(--bg-canvas)] transition-colors duration-250">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
+            <div className="text-xs font-semibold uppercase tracking-wider text-[var(--accent-text)] mb-2">
               Engineering Expertise
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-color)]">
               Dynamic Skill Visualizations
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2 max-w-xl">
+            <p className="text-sm sm:text-base text-[var(--text-muted)] mt-2 max-w-xl">
               Cross-platform mobile application development, Django backend infrastructure, real-time protocols, and Gemini AI.
             </p>
           </div>
 
-          {/* View Mode Toggle (Segmented control: Skill Matrix / Architecture Map) */}
-          <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-medium self-start md:self-auto">
+          {/* View Mode Toggle */}
+          <div className="flex items-center p-1 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-color)] text-xs font-medium self-start md:self-auto">
             <button
               onClick={() => setViewMode('cards')}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 viewMode === 'cards'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-[var(--accent-color)] text-white shadow-xs font-semibold'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'
               }`}
             >
-              <Code2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+              <Code2 className="h-3.5 w-3.5" />
               <span>Skill Matrix</span>
             </button>
             <button
               onClick={() => setViewMode('architecture')}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 viewMode === 'architecture'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-[var(--accent-color)] text-white shadow-xs font-semibold'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'
               }`}
             >
-              <Network className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+              <Network className="h-3.5 w-3.5" />
               <span>Architecture Map</span>
             </button>
           </div>
@@ -106,7 +106,7 @@ export const DynamicSkillsVisualizer: React.FC = () => {
         {viewMode === 'cards' && (
           <div>
             {/* Search & Filter Toolbar */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800/60">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-[var(--border-color)]">
               
               {/* Category Filter Buttons */}
               <div className="flex flex-wrap items-center gap-2">
@@ -114,8 +114,8 @@ export const DynamicSkillsVisualizer: React.FC = () => {
                   onClick={() => setActiveCategory('all')}
                   className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                     activeCategory === 'all'
-                      ? 'bg-blue-600 text-white font-semibold shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-900/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 border border-slate-200 dark:border-slate-800'
+                      ? 'bg-[var(--accent-color)] text-white font-semibold shadow-xs'
+                      : 'bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-color)] border border-[var(--border-color)]'
                   }`}
                 >
                   All Skills
@@ -126,8 +126,8 @@ export const DynamicSkillsVisualizer: React.FC = () => {
                     onClick={() => setActiveCategory(cat.category)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                       activeCategory === cat.category
-                        ? 'bg-blue-600 text-white font-semibold shadow-xs'
-                        : 'bg-slate-100 dark:bg-slate-900/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 border border-slate-200 dark:border-slate-800'
+                        ? 'bg-[var(--accent-color)] text-white font-semibold shadow-xs'
+                        : 'bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-color)] border border-[var(--border-color)]'
                     }`}
                   >
                     {getCategoryIcon(cat.category)}
@@ -138,13 +138,13 @@ export const DynamicSkillsVisualizer: React.FC = () => {
 
               {/* Real-time search filter */}
               <div className="relative min-w-[220px]">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[var(--text-muted)]" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Filter skills (e.g. Django, Dart)..."
-                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-blue-500"
+                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-color)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-color)]"
                 />
               </div>
 
@@ -161,30 +161,30 @@ export const DynamicSkillsVisualizer: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.2 }}
-                    className="rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-[#0E1422] p-5 sm:p-6 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors shadow-xs"
+                    className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] p-5 sm:p-6 flex flex-col justify-between hover:border-[var(--border-strong)] transition-colors shadow-xs"
                   >
                     <div>
                       {/* Category Header */}
                       <div className="flex items-center gap-2 mb-2">
                         {getCategoryIcon(cat.category)}
-                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">{cat.category}</h3>
+                        <h3 className="text-sm font-bold text-[var(--text-color)]">{cat.category}</h3>
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">{cat.description}</p>
+                      <p className="text-xs text-[var(--text-muted)] mb-4">{cat.description}</p>
 
                       {/* Skill items */}
                       <div className="space-y-3.5">
                         {cat.skills.map((skill) => (
-                          <div key={skill.name} className="border-t border-slate-200 dark:border-slate-800/60 pt-3">
+                          <div key={skill.name} className="border-t border-[var(--border-color)] pt-3">
                             <div className="flex items-center justify-between text-xs mb-1">
-                              <span className="font-semibold text-slate-800 dark:text-slate-200">
+                              <span className="font-semibold text-[var(--text-color)]">
                                 {skill.name}
                               </span>
                               {/* Metadata rendered as clean unboxed text */}
-                              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                              <span className="text-[11px] font-mono text-[var(--text-muted)]">
                                 {skill.level}
                               </span>
                             </div>
-                            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-normal">
+                            <p className="text-[11px] text-[var(--text-muted)] leading-normal">
                               {skill.experienceNote}
                             </p>
                           </div>
@@ -200,12 +200,12 @@ export const DynamicSkillsVisualizer: React.FC = () => {
 
         {/* View Mode 2: Interactive Architecture Map */}
         {viewMode === 'architecture' && (
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0E1422] p-6 md:p-8">
+          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] p-6 md:p-8">
             <div className="max-w-2xl mb-8">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              <h3 className="text-lg font-bold text-[var(--text-color)] mb-2">
                 Unified Cross-Platform & Backend Architecture
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-xs sm:text-sm text-[var(--text-muted)]">
                 Visualizing how Mohammed coordinates Flutter across client platforms, real-time WebSockets, Django REST backend, and cloud hosting tiers.
               </p>
             </div>
@@ -213,69 +213,69 @@ export const DynamicSkillsVisualizer: React.FC = () => {
             {/* Architecture Node Flow */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
               {/* Node 1: Client Tier */}
-              <div className="rounded-xl border border-blue-200 dark:border-blue-500/30 bg-blue-50/50 dark:bg-blue-950/20 p-4 flex flex-col">
-                <div className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">Tier 01</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white mb-2">Flutter Client Layer</div>
-                <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 flex-1">
+              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-subtle)] p-4 flex flex-col">
+                <div className="text-xs font-mono text-[var(--accent-text)] uppercase tracking-wider mb-1">Tier 01</div>
+                <div className="text-sm font-bold text-[var(--text-color)] mb-2">Flutter Client Layer</div>
+                <div className="text-xs text-[var(--text-muted)] space-y-1.5 flex-1">
                   <div>· Dart Null-Safe Codebase</div>
                   <div>· Android & iOS native targets</div>
                   <div>· Flutter Web for Admin & Previews</div>
                   <div>· Responsive Custom Widgets</div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-blue-200 dark:border-blue-500/20 text-[11px] text-blue-600 dark:text-blue-300 font-mono">
+                <div className="mt-3 pt-2 border-t border-[var(--border-color)] text-[11px] text-[var(--accent-text)] font-mono">
                   Target: Mobile & Web
                 </div>
               </div>
 
               {/* Node 2: Network & Signaling */}
-              <div className="rounded-xl border border-indigo-200 dark:border-indigo-500/30 bg-indigo-50/50 dark:bg-indigo-950/20 p-4 flex flex-col">
-                <div className="text-xs font-mono text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">Tier 02</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white mb-2">Transport & Real-Time</div>
-                <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 flex-1">
+              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-subtle)] p-4 flex flex-col">
+                <div className="text-xs font-mono text-[var(--accent-text)] uppercase tracking-wider mb-1">Tier 02</div>
+                <div className="text-sm font-bold text-[var(--text-color)] mb-2">Transport & Real-Time</div>
+                <div className="text-xs text-[var(--text-muted)] space-y-1.5 flex-1">
                   <div>· WebSockets for Room Signaling</div>
                   <div>· RESTful Endpoints (JSON)</div>
                   <div>· Firebase SDK Sync</div>
                   <div>· Low-latency Event Streams</div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-indigo-200 dark:border-indigo-500/20 text-[11px] text-indigo-600 dark:text-indigo-300 font-mono">
+                <div className="mt-3 pt-2 border-t border-[var(--border-color)] text-[11px] text-[var(--accent-text)] font-mono">
                   Protocols: WSS / HTTPS
                 </div>
               </div>
 
               {/* Node 3: Backend & AI */}
-              <div className="rounded-xl border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/20 p-4 flex flex-col">
-                <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">Tier 03</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white mb-2">Django Backend & AI</div>
-                <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 flex-1">
+              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-subtle)] p-4 flex flex-col">
+                <div className="text-xs font-mono text-[var(--accent-text)] uppercase tracking-wider mb-1">Tier 03</div>
+                <div className="text-sm font-bold text-[var(--text-color)] mb-2">Django Backend & AI</div>
+                <div className="text-xs text-[var(--text-muted)] space-y-1.5 flex-1">
                   <div>· Python Django REST Framework</div>
                   <div>· Room State & Session Control</div>
                   <div>· Gemini API Integration</div>
                   <div>· AI Video Transcripts & Summary</div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-emerald-200 dark:border-emerald-500/20 text-[11px] text-emerald-600 dark:text-emerald-300 font-mono">
+                <div className="mt-3 pt-2 border-t border-[var(--border-color)] text-[11px] text-[var(--accent-text)] font-mono">
                   Engine: Python + Gemini
                 </div>
               </div>
 
               {/* Node 4: Infrastructure */}
-              <div className="rounded-xl border border-sky-200 dark:border-sky-500/30 bg-sky-50/50 dark:bg-sky-950/20 p-4 flex flex-col">
-                <div className="text-xs font-mono text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-1">Tier 04</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white mb-2">Cloud & Deployment</div>
-                <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 flex-1">
+              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-subtle)] p-4 flex flex-col">
+                <div className="text-xs font-mono text-[var(--accent-text)] uppercase tracking-wider mb-1">Tier 04</div>
+                <div className="text-sm font-bold text-[var(--text-color)] mb-2">Cloud & Deployment</div>
+                <div className="text-xs text-[var(--text-muted)] space-y-1.5 flex-1">
                   <div>· Firebase Hosting (Frontend)</div>
                   <div>· Render (Django Backend)</div>
                   <div>· Vercel (Admin Operations)</div>
                   <div>· GitHub CI/CD Workflows</div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-sky-200 dark:border-sky-500/20 text-[11px] text-sky-600 dark:text-sky-300 font-mono">
+                <div className="mt-3 pt-2 border-t border-[var(--border-color)] text-[11px] text-[var(--accent-text)] font-mono">
                   Live Production
                 </div>
               </div>
             </div>
 
             {/* Resume alignment guarantee note */}
-            <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <div className="mt-6 pt-4 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-[var(--accent-text)] shrink-0" />
               <span>
                 Derived from Mohammed&apos;s real production work on Zivbit at Starforce LLC and his AI Video Conferencing deployment.
               </span>

@@ -3,59 +3,188 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-subtle: var(--bg-surface-subtle);
+  --color-border-theme: var(--border-color);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent-color);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-text: var(--accent-text);
+  --color-text-main: var(--text-color);
+  --color-text-muted: var(--text-muted);
 }
 
-/* Custom smooth scroll & styling */
+/* Base resets & typography */
 html {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  background-color: var(--bg-canvas);
+  color: var(--text-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-html.dark {
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   PALETTE 1: EMERALD & MINT (DEFAULT) - Fresh Modern High-Tech
+   ========================================================== */
+html.theme-emerald,
+html:not([class*="theme-"]) {
+  --bg-canvas: #060D0A;
+  --bg-surface: #0C1712;
+  --bg-surface-subtle: #12221A;
+  --border-color: rgba(52, 211, 153, 0.14);
+  --border-strong: rgba(52, 211, 153, 0.28);
+  --accent-color: #10B981;
+  --accent-hover: #059669;
+  --accent-subtle: rgba(16, 185, 129, 0.12);
+  --accent-text: #34D399;
+  --text-color: #F0FDF4;
+  --text-muted: #94A3B8;
   color-scheme: dark;
-  background-color: #0A0E17;
-  color: #F1F5F9;
 }
 
-html.light {
+html.theme-emerald.light,
+html:not([class*="theme-"]).light {
+  --bg-canvas: #F4FAF6;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #E8F4EE;
+  --border-color: #D1E7DC;
+  --border-strong: #A7D5C1;
+  --accent-color: #059669;
+  --accent-hover: #047857;
+  --accent-subtle: #E6F7F0;
+  --accent-text: #059669;
+  --text-color: #062E1E;
+  --text-muted: #4B6358;
   color-scheme: light;
-  background-color: #F8FAFC;
-  color: #0F172A;
 }
 
-/* Custom subtle scrollbar */
+/* ==========================================================
+   PALETTE 2: WARM TITANIUM & AMBER - Luxury Minimalist Studio
+   ========================================================== */
+html.theme-amber {
+  --bg-canvas: #0E0C09;
+  --bg-surface: #171410;
+  --bg-surface-subtle: #221D16;
+  --border-color: rgba(245, 158, 11, 0.14);
+  --border-strong: rgba(245, 158, 11, 0.28);
+  --accent-color: #F59E0B;
+  --accent-hover: #D97706;
+  --accent-subtle: rgba(245, 158, 11, 0.12);
+  --accent-text: #FBBF24;
+  --text-color: #FFFBEB;
+  --text-muted: #9CA3AF;
+  color-scheme: dark;
+}
+
+html.theme-amber.light {
+  --bg-canvas: #FDFBF7;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F6F1E6;
+  --border-color: #E8DEC7;
+  --border-strong: #D5C29B;
+  --accent-color: #D97706;
+  --accent-hover: #B45309;
+  --accent-subtle: #FEF3C7;
+  --accent-text: #B45309;
+  --text-color: #291E0A;
+  --text-muted: #5C5243;
+  color-scheme: light;
+}
+
+/* ==========================================================
+   PALETTE 3: COSMIC VIOLET & IRIS - Modern Creative Deep Space
+   ========================================================== */
+html.theme-violet {
+  --bg-canvas: #0A0714;
+  --bg-surface: #130E24;
+  --bg-surface-subtle: #1D1537;
+  --border-color: rgba(167, 139, 250, 0.14);
+  --border-strong: rgba(167, 139, 250, 0.28);
+  --accent-color: #8B5CF6;
+  --accent-hover: #7C3AED;
+  --accent-subtle: rgba(139, 92, 246, 0.12);
+  --accent-text: #A78BFA;
+  --text-color: #F5F3FF;
+  --text-muted: #94A3B8;
+  color-scheme: dark;
+}
+
+html.theme-violet.light {
+  --bg-canvas: #F9F8FD;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F0EDFC;
+  --border-color: #DDD6FE;
+  --border-strong: #C4B5FD;
+  --accent-color: #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-subtle: #EDE9FE;
+  --accent-text: #6D28D9;
+  --text-color: #1E143E;
+  --text-muted: #4C4566;
+  color-scheme: light;
+}
+
+/* ==========================================================
+   PALETTE 4: MONOCHROME SLATE - Swiss Architectural Minimalist
+   ========================================================== */
+html.theme-slate {
+  --bg-canvas: #09090B;
+  --bg-surface: #121216;
+  --bg-surface-subtle: #1C1C22;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --accent-color: #FFFFFF;
+  --accent-hover: #E4E4E7;
+  --accent-subtle: rgba(255, 255, 255, 0.1);
+  --accent-text: #FFFFFF;
+  --text-color: #FAFAFA;
+  --text-muted: #A1A1AA;
+  color-scheme: dark;
+}
+
+html.theme-slate.light {
+  --bg-canvas: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F1F5F9;
+  --border-color: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --accent-color: #0F172A;
+  --accent-hover: #1E293B;
+  --accent-subtle: #F1F5F9;
+  --accent-text: #0F172A;
+  --text-color: #09090B;
+  --text-muted: #475569;
+  color-scheme: light;
+}
+
+/* Scrollbar styles matching active canvas */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #0A0E17;
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
   border-radius: 4px;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
 }
 
-.light ::-webkit-scrollbar-track {
-  background: #F1F5F9;
-}
-
-.light ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
-}
-
-.light ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-}
-
-/* Code block highlight */
 code, pre, .font-mono {
   font-family: var(--font-mono);
 }

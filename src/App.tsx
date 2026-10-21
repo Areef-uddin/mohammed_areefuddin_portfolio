@@ -16,8 +16,8 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-[#0A0E17] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-600/20 selection:text-blue-600 dark:selection:bg-blue-600/30 dark:selection:text-blue-200 transition-colors duration-200">
-        {/* Top Bar with Brand, Nav Links & Dark/Light Switcher */}
+      <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-color)] flex flex-col font-sans selection:bg-[var(--accent-color)]/25 selection:text-[var(--accent-text)] transition-colors duration-250">
+        {/* Top Bar with Brand, Nav Links, Theme Palette Picker & Light/Dark Switcher */}
         <Navbar onOpenResume={() => setResumeModalOpen(true)} />
 
         {/* Main Content Sections */}
